@@ -1,17 +1,13 @@
 const express = require("express");
 const path = require("path");
-const multer = require("multer");
 const fs = require("fs");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-// const { randomBytes } = require("crypto");
-
 
 //import scripts
+// const encrypt = require("./scheme/encrypt");
 const upload = require("./scripts/upload");
-const { split } = require("./scripts/secrets");
-const { randomBytes } = require("crypto");
-const saveArrayAsFile = require("./scripts/saveArrayAsFile");
+
 const app = express();
 
 app.set("views", path.join(__dirname, "views"));
@@ -29,22 +25,15 @@ app.get("/encode", function (req, res) {
 	res.render("encode");
 });
 
-app.post("/encode", function (req, res) {
-	console.log(req.body.threshold);
-	let threshold = req.body.threshold; //k
-	let numShares = req.body.numShares; //n
+// app.post("/encode", function (req, res) {
+// 	console.log(req.body.threshold);
+// 	let threshold = req.body.threshold; //k
+// 	let numShares = req.body.numShares; //n
 
-	let base64string = "";
-	fs.readFile("./base64encoded/test.txt", "utf8", function (err, data) {
-		base64string = data;
-		// console.log(base64string);
-
-		
-
-	});
+// 	encrypt('./base64encoded/test.txt', numShares, threshold);
 
 	
-});
+// });
 
 app.post("/uploadImage", function (req, res, next) {
 	// Error MiddleWare for multer file upload, so if any

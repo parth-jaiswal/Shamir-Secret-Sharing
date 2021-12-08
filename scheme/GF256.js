@@ -1,18 +1,3 @@
-/*
- * Copyright © 2019 Simon Massey (massey1905@gmail.com)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 /* eslint-disable no-bitwise */
 function add(a, b) {
@@ -21,11 +6,6 @@ function add(a, b) {
 
 exports.add = add;
 
-/* The Laws of Cryptograhy with Java Code by Neal R. Wagner
-http://www.cs.utsa.edu/~wagner/lawsbookcolor/laws.pdf
-Page 120 (134) section "20.3 Addition in GP(2^n)" is equal \
-to subtraction.
-*/
 const sub = add;
 
 exports.sub = exports.add;
@@ -72,6 +52,7 @@ const LOG = new Uint8Array([
 
 /* https://crypto.stackexchange.com/a/21174/13860
 */
+
 const EXP = new Uint8Array([
   0x01, 0x03, 0x05, 0x0f, 0x11, 0x33, 0x55,
   0xff, 0x1a, 0x2e, 0x72, 0x96, 0xa1, 0xf8,
@@ -178,8 +159,9 @@ exports.degree = degree;
 
 /**
  * Calculates f(0) of the given points using Lagrangian interpolation.
- * @param  {array[Uint8Array]} points The supplied point.
+ * points = The supplied point.
  */
+
 function interpolate(points) {
   const x = 0;
   let y = 0;
@@ -204,9 +186,8 @@ exports.interpolate = interpolate;
 
 /**
  * Generates a random polynomal of the correct degree and sets x as the first coefficient.
- * @param  {function int -> array[Uint8Array]} randomBytes Takes a length and returns a
- * Uint8Array of that length.
- * @param  {Number} d The degree of the polynomial driven by the number shares and join threshold.
+ * Takes a length and returns a Uint8Array of that length.
+ * The degree of the polynomial driven by the number shares and join threshold.
  * @param {Number} x The point to hide.
  * @return {Uint8Array} The random polynomial with x as the fist coefficient.
  */
