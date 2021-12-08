@@ -5,13 +5,14 @@ const algorithm = "aes-256-cbc";
 
 const decipher = (encryptedData) => {
     encryptedData = fs.readFileSync("../aesEncrypted/encrypted.txt", "utf8");
-    console.log(encryptedData);
+    // console.log(encryptedData);
 	const decipher = crypto.createDecipheriv(algorithm, key, iv);
 
 	let decryptedData = decipher.update(encryptedData, "hex", "utf-8");
 
 	decryptedData += decipher.final("utf8");
 
-	console.log("Decrypted message: " + decryptedData);
+	// console.log("Decrypted message: " + decryptedData);
+	fs.writeFileSync("../aesEncrypted/decrypted.txt", decryptedData);
 };
 module.exports = decipher();

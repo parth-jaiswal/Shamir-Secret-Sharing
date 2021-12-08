@@ -21,7 +21,7 @@ function encodeImage() {
         });
 
 }
-// encodeImage();
+encodeImage();
 module.exports = encodeImage;
 
 

@@ -6,7 +6,7 @@ const decrypt = require("./decrypt");
 
 function encrypt(filepath, n, k) {
     n = 5, k = 3;
-    filepath = "../base64encoded/test.txt";
+    filepath = "../aesEncrypted/encrypted.txt";
     const secret = fs.readFileSync(filepath, 'utf8');
 			// you can use any polyfill to covert between strings and Uint8Array
 		const utf8Encoder = new TextEncoder();
@@ -41,10 +41,6 @@ function encrypt(filepath, n, k) {
 					"../base64encoded/combinedFile.txt",
 					utf8Decoder.decode(recovered)
 				);
-
-        
-    
-    
 }
 
 encrypt();
